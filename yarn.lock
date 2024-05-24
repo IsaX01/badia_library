@@ -1478,6 +1478,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.11.tgz#2f4c6e10bee0786abff4604e39a37ded6f3980ce"
   integrity sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw==
 
+"@react-native-google-signin/google-signin@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-12.0.0.tgz#146a8e635ed34740df97cf2439b1368c5f1be58c"
+  integrity sha512-Iqnw+uwMQysoe4L0uuzOYODEaVLW0o5WYvymujYuJ3Ds79Z4T1tyqVHISHMF6AUC0kYFpQFBSRFhXcdYGqgOgw==
+
 "@react-native/assets-registry@0.74.83", "@react-native/assets-registry@~0.74.83":
   version "0.74.83"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.74.83.tgz#c1815dc10f9e1075e0d03b4c8a9619145969522e"

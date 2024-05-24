@@ -20,32 +20,50 @@
 //   },
 // });
 
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Home from './src/screens/Home';
-import Profile from './src/screens/Profile';
-import Login from './src/screens/Login';
+import React from 'react';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { Appearance, useColorScheme } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import { Home } from './src/screens/Home';
+import { Profile } from './src/screens/Profile';
+import { Login } from './src/screens/Login';
+import { Books } from './src/screens/Books';
+
+const Stack = createStackNavigator();
+const AuthStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Login" component={Login} />
+  </Stack.Navigator>
+);
 
 const Tab = createBottomTabNavigator();
+const MainTabs = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Dashboard" component={Home} />
+    <Tab.Screen name="Books" component={Books} />
+    <Tab.Screen name="Profile" component={Profile} />
+  </Tab.Navigator>
+);
 
-function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-
-  if (!loggedIn) {
-    return <Login onLogin={() => setLoggedIn(true)} />;
-  }
+const App = () => {
+  const scheme = useColorScheme();
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Profile" component={Profile} />
-      </Tab.Navigator>
+    // <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer theme={DarkTheme}>
+      <Stack.Navigator>
+        <Stack.Screen name="Auth" component={AuthStack} options={{ headerShown: false }} />
+        <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
 
 export default App;
+
+
 

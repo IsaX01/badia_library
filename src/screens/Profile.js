@@ -1,47 +1,55 @@
-import React from "react";
-import { SafeAreaView, ScrollView, Text, Image, Button } from "react-native";
-import {
-  Center,
-  ScrollView as NWScrollView,
-  Text as NWText,
-  Image as NWImage,
-  Button as NWButton,
-} from "nativewind";
+import React from 'react';
+import { View, Text, Pressable, Button, StyleSheet } from 'react-native';
 
-const ProfileScreen = () => {
-  const user = {
-    name: "John Doe",
-    photo:
-      "https://th.bing.com/th/id/OIP.-ZSeogQUpXoAy5X2VKX2igHaHa?rs=1&pid=ImgDetMain",
-  };
-
+export const Profile = ({ navigation }) => {
   const handleLogout = () => {
-    // Implementar la lógica de cierre de sesión
-    // Redirigir a la pantalla de inicio de sesión
-    navigation.navigate("Login");
+    // Aquí puedes poner tu lógica de cierre de sesión
+    // Por ejemplo, puedes borrar el token de autenticación del almacenamiento local
+
+    // Luego navega de vuelta a la pantalla de inicio de sesión
+    navigation.replace('Auth');
   };
 
   return (
-    <SafeAreaView>
-      <NWScrollView>
-        <Center mt="20">
-          <NWText fontSize="2xl" fontWeight="bold">
-            {user.name}
-          </NWText>
-          <NWImage
-            mt="10"
-            source={user.photo}
-            width={150}
-            height={150}
-            borderRadius="full"
-          />
-          <NWButton mt="20" onPress={handleLogout}>
-            Cerrar sesión
-          </NWButton>
-        </Center>
-      </NWScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>Profile Screen</Text>
+      <Button title="Log out" onPress={handleLogout} />
+    </View>
   );
 };
 
-export default ProfileScreen;
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    // backgroundColor: "#141414",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+  },
+  content: {
+    marginVertical: 30
+  },
+  input: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    height: 50,
+    // color: '#fafafa',
+    marginVertical: 15,
+    padding: 10,
+  },
+  customButton: {
+    width: 40,
+    borderCurve: 'circular',
+    height: 48,
+    backgroundColor: '#76d6ff'
+
+  },
+  image: {
+    width: 300,
+    height: 300,
+    alignSelf: 'center', 
+  },
+  text: {
+    // color: '#fafafa', 
+  },
+});
