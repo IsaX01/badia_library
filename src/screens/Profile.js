@@ -20,36 +20,48 @@ export const Profile = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
     // backgroundColor: "#141414",
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
   content: {
-    marginVertical: 30
+    marginVertical: 30,
   },
   input: {
-    borderColor: 'gray',
+    borderColor: "#32c9fe",
     borderWidth: 1,
     height: 50,
     // color: '#fafafa',
     marginVertical: 15,
     padding: 10,
+    borderRadius: 10,
   },
-  customButton: {
-    width: 40,
-    borderCurve: 'circular',
-    height: 48,
-    backgroundColor: '#76d6ff'
-
+  button: {
+    justifyContent: "center",
+    flexDirection: "row",
+    gap: 5,
+    marginVertical: 15,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 15,
+    elevation: 3,
+    width: 200,
+    backgroundColor: "#07b2f0",
+    alignSelf: "center",
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "semibold",
+    letterSpacing: 0.25,
   },
   image: {
     width: 300,
     height: 300,
-    alignSelf: 'center', 
-  },
-  text: {
-    // color: '#fafafa', 
+    alignSelf: "center",
+    objectFit: "cover",
+    borderRadius: 15,
   },
 });
