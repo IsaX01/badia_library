@@ -78,14 +78,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: "center",
     paddingLeft: 10,
-    paddingTop: 8,
-    paddingBottom: 10
+    height: 35,
+    paddingTop: 6
   },
   input: {
     height: 30,
     // color: '#fafafa',
     flex: 1,
-    paddingTop: 8,
     paddingRight: 10,
     paddingBottom: 10,
     paddingLeft: 5,

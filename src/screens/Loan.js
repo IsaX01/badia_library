@@ -9,7 +9,7 @@ export const Loan = () => {
 
     return (
       <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate("Books")}>
+        <Pressable onPress={() => navigation.navigate("Loans")}>
             <View style={styles.content}>
               <ArrowLeftIcon size={30} color={"#dff4ff"}/>
             </View>
