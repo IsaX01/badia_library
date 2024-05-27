@@ -1,9 +1,12 @@
 
 import { loginSuccess, loginFailure, logout } from './authSlice';
+// const host = "10.0.0.7";
+const host = "192.168.1.164";
+
 
 export const loginUser = (email, password) => async (dispatch) => {
   try {
-    const response = await fetch("http://10.0.0.7:8080/api/user/login", {
+    const response = await fetch(`http://${host}:8080/api/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +28,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
   try {
-    const response = await fetch("http://10.0.0.7:8080/api/user/logout", {
+    const response = await fetch(`http://${host}:8080/api/user/logout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

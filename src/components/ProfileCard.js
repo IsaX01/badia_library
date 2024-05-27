@@ -6,10 +6,11 @@ export const ProfileCard = ({ user }) => {
   return (
     <TouchableOpacity>
     <View style={styles.card}>
-      <Text style={styles.title}>{user.first_name}</Text>
-      <Text style={styles.author}>Author: {user.last_name}</Text>
-      <Text style={styles.genre}>Genre: {user.email}</Text>
-      <Text style={styles.language}>Language: {user.role}</Text>
+      <Text style={styles.title}>{user.first_name +" "+ user.last_name}</Text>
+      <Text style={styles.author}>Status: {user.status}</Text>
+      <Text style={styles.genre}>Email: {user.email}</Text>
+      <Text style={styles.language}>Role: {user.role}</Text>
+      <Text style={styles.language}>Address: {user.address}</Text>
     </View></TouchableOpacity>
   );
 };

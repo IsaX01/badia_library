@@ -7,7 +7,7 @@ export const LoanCard = ({ loan }) => {
 
   const handleCardPress = () => {
     // Navigate to the loan details screen (adjust as needed)
-    navigation.navigate("Loan", { loanId: loan.id });
+    navigation.navigate("Loan", { loanId: loan.id, loan: loan });
   };
 
   return (
@@ -15,8 +15,8 @@ export const LoanCard = ({ loan }) => {
       <View style={styles.card}>
         <Text style={styles.title}>Loan Register: {loan.id}</Text>
         <Text style={styles.title}>Book: {loan.book_title}</Text>
-        <Text style={styles.title}>Loan to: {loan.user_name}</Text>
-        <Text style={styles.date}>Load Date: {loan.load_date}</Text>
+        <Text style={styles.title}>Loan to: {loan.full_name}</Text>
+        <Text style={styles.date}>Load Date: {loan.loan_date}</Text>
         <Text style={styles.date}>Return Date: {loan.return_date}</Text>
         <Text style={styles.date}>Real Return Date: {loan.real_return_date}</Text>
         <Text style={styles.status}>Status: {loan.status}</Text>

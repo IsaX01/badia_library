@@ -75,6 +75,7 @@ export const Login = ({ navigation }) => {
         <Pressable
           style={styles.button}
           onPress={handleLogin}
+          // onPress={() =>navigation.replace("Main")}
           disabled={isLoading}
         >
           <Text style={[styles.text, {color: "#c2edff"}]}>{isLoading ? 'Loading...' : 'Login'}</Text>
