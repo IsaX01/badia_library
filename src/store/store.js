@@ -1,8 +1,12 @@
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './authSlice';
+import booksReducer from './booksSlice';
 
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { userReducer } from './reduxReducers'; 
-
-const store = createStore(userReducer);
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    books: booksReducer,
+  },
+});
 
 export default store;

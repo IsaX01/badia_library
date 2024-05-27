@@ -8,28 +8,47 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  Alert,
 } from "react-native";
 import { ArrowRightEndOnRectangleIcon } from "react-native-heroicons/micro";
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../store/authActions';
 
 export const Login = ({ navigation }) => {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
 
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const dispatch = useDispatch();
+
+  // ...
+  
+  const isAuthenticated = useSelector((state) => state.auth.user !== null);
+  const user = useSelector((state) => state.auth.user);
+  const [isLoading, setIsLoading] = React.useState(false); 
+  
   const handleLogin = async () => {
-    const response = await fetch("https://my-api.com/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      setIsLoading(true); 
+      await dispatch(loginUser(email, password));
 
-    const data = await response.json();
-
-    if (response.ok) {
-      dispatch(loginSuccess(data.user));
-    } else {
-      // Manejar error de inicio de sesión
+      if (isAuthenticated) {
+        console.log(user)
+        const fullName = `${user?.first_name || ''} ${user?.last_name || ''}`; // Handle potential missing names
+        console.log("auth", isAuthenticated);
+        console.log(fullName);
+        Alert.alert("Welcome!", `Hello, ${fullName}!`);
+        navigation.replace("Main");
+      } else {
+        Alert.alert("Error", "Authentication failed. Please check your credentials.");
+      }
+    } catch (error) {
+      Alert.alert("Error", "Error connecting to the server.");
+    } finally {
+      setIsLoading(false); 
     }
   };
-
+  
+  
   return (
     <View style={styles.container}>
       <Image
@@ -55,9 +74,10 @@ export const Login = ({ navigation }) => {
         />
         <Pressable
           style={styles.button}
-          onPress={() => navigation.replace("Main")}
+          onPress={handleLogin}
+          disabled={isLoading}
         >
-          <Text style={[styles.text, {color: "#c2edff"}]}>Login</Text>
+          <Text style={[styles.text, {color: "#c2edff"}]}>{isLoading ? 'Loading...' : 'Login'}</Text>
           <ArrowRightEndOnRectangleIcon size={24} color="#c2edff"/>
         </Pressable>
       </View>

@@ -9,7 +9,7 @@ export const BookCard = ({ book }) => {
   const handleCardPress = () => {
     // Aquí puedes mostrar un modal o un menú para que el usuario seleccione una opción
     // Por ahora, simplemente navegaré a la pantalla de edición
-    navigation.navigate("Book", { bookId: book.id });
+    navigation.navigate("Book", { bookId: book.id, book: book });
   };
 
   return (
